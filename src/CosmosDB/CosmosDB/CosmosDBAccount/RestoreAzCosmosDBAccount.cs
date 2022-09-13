@@ -71,7 +71,7 @@ namespace Microsoft.Azure.Commands.CosmosDB
                 return;
             }
 
-            bool isSourceRestorableAccountDeleted = false;
+            //bool isSourceRestorableAccountDeleted = false;
             List<RestorableDatabaseAccountGetResult> restorableDatabaseAccounts = CosmosDBManagementClient.RestorableDatabaseAccounts.ListWithHttpMessagesAsync().GetAwaiter().GetResult().Body.ToList();
 
             RestorableDatabaseAccountGetResult sourceAccountToRestore = null;
@@ -86,7 +86,7 @@ namespace Microsoft.Azure.Commands.CosmosDB
                         if (!restorableAccount.DeletionTime.HasValue || restorableAccount.DeletionTime > utcRestoreDateTime)
                         {
                             sourceAccountToRestore = restorableAccount;
-                            isSourceRestorableAccountDeleted = true;
+                            //isSourceRestorableAccountDeleted = true;
                             break;
                         }
                     }
@@ -98,7 +98,7 @@ namespace Microsoft.Azure.Commands.CosmosDB
                 WriteWarning($"No database accounts found with matching account name {SourceDatabaseAccountName} that was alive at given utc-timestamp {utcRestoreDateTime}");
                 return;
             }
-
+/*
             // Validate if source account is empty if the source account is a live account.
             if (!isSourceRestorableAccountDeleted)
             {
@@ -147,7 +147,7 @@ namespace Microsoft.Azure.Commands.CosmosDB
                     return;
                 }
             }
-
+*/
             // Trigger restore
             PSRestoreParameters restoreParameters = new PSRestoreParameters()
             {
