@@ -20,6 +20,8 @@
 
 ## Upcoming Release
 * Added PublicNetworkAccess parameter to `Restore-AzCosmosDBAccount`.
+* New-AzCosmosDBAccount cmdlet was updated with new paramter: EnableBurstCapacity.
+* Update-AzCosmosDBAccount cmdlet was updated with: EnableBurstCapacity.
 
 ## Version 1.10.0
 * Introduced restorable apis support for Gremlin and Table, which includes:
@@ -27,10 +29,6 @@
     - Added RetrieveContinuousBackupInfo apis for Gremlin and Table which help in determining the restore point of time and the resources to restore.
     - Added GremlinDatabasesToRestore and TablesToRestore field to provision and restore database account api.
     - Added StartTime and EndTime support for listing restorable containers event feed.
-
-## Version 1.9.2
-* New-AzCosmosDBAccount cmdlet was updated with new paramter: EnableBurstCapacity.
-* Update-AzCosmosDBAccount cmdlet was updated with: EnableBurstCapacity.
 
 ## Version 1.9.1
 * Updated Azure.Core to 1.28.0.
